@@ -3,14 +3,19 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 // Create and configure Nodemailer transporter
+// Note: for local/dev environments with self-signed certs we disable strict TLS.
+// In production use a proper SMTP credential (or OAuth2) and do not set rejectUnauthorized: false.
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   host: 'smtp.gmail.com',
   port: 587,
-  secure: false, 
+  secure: false,
   auth: {
     user: process.env.EMAIL_ADDRESS,
-    pass: process.env.GMAIL_PASSKEY, 
+    pass: process.env.GMAIL_PASSKEY || process.env.GMAIL_APP_PASSWORD, // prefer app password
+  },
+  tls: {
+    rejectUnauthorized: false,
   },
 });
 

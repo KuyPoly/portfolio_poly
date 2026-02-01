@@ -3,7 +3,10 @@
 import * as React from 'react';
 
 function ProjectCard({ project }) {
-
+ 
+  const isFigma = project?.id === 4;
+  const codeLabel = isFigma ? 'Figma:' : 'Code:';
+  const linkLabel = isFigma ? 'View on Figma,' : 'View on GitHub,';
   return (
     <div className="from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37] w-full">
       <div className="flex flex-row">
@@ -60,6 +63,24 @@ function ProjectCard({ project }) {
             <span className="text-white">Description:</span>
             <span className="text-cyan-400">{' ' + project.description}</span>
             <span className="text-gray-400">,</span>
+          </div>
+          <div className="ml-4 lg:ml-8 mr-2">
+            {project.code && project.code.length > 0 ? (
+            <span className="text-white">{codeLabel}
+
+              <a
+                href={project.code}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-400 hover:underline ml-1"
+              >
+                {linkLabel}
+              </a>
+            </span>
+            ) : (
+              <span className="text-gray-400"></span>
+            )}
+            <span className="text-gray-400"></span>
           </div>
           <div><span className="text-gray-400">{`};`}</span></div>
         </code>
