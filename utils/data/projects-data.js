@@ -3,7 +3,7 @@ export const projectsData = [
         id: 1,
         name: 'LockedIn',
         description: "Me and my team built a productivity-focused study app that helps students stay organized, motivated, and connected. It combines collaborative learning tools, quick study resources, and AI-powered productivity features into one seamless platform.",
-        tools: ['Flutter', 'Node.js', 'Jitsi API', ' RESTful API', 'JWT', 'MongoDB', 'Cloudflare CDN', 'LLaMA 3', 'Stream Chat Flutter'],
+        tools: ['Flutter', 'Node.js', 'Jitsi API', ' RESTful API', 'JWT', 'MongoDB', 'Cloudflare CDN', 'GROQ', 'Stream Chat Flutter'],
         role: 'Frontend Developer',
         code: '',
         demo: '',
